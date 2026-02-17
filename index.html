@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Despensa Mi Felisa</title>
+  <link rel="icon" href="logo.jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero" id="inicio">
+    <nav class="nav">
+      <div class="logo">
+        <img class="logo-mark" src="logo.jpeg" alt="Logo Mi Felisa" />
+        <div>
+          <strong>Mi Felisa</strong>
+          <span>Despensa del barrio</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#promos">Promos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="nav-cart" aria-live="polite">
+        <div class="nav-cart-info">
+          <span class="nav-title">Pedido</span>
+          <button class="nav-count" id="cartToggle" type="button">
+            <span id="cartCount">0</span> productos
+          </button>
+          <span class="nav-total" id="cartTotalMini">$0</span>
+        </div>
+        <a class="nav-cart-action whatsapp-btn" id="sendOrderTop" href="https://wa.me/543815787398" target="_blank" rel="noopener">
+          <span class="wa-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32">
+              <path d="M19.11 17.62c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.64.14-.18.28-.73.9-.9 1.08-.16.18-.33.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.33.42-.49.14-.16.18-.28.28-.46.1-.18.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.55-.46-.47-.64-.48l-.54-.01c-.18 0-.49.07-.74.35-.26.28-.97.95-.97 2.32 0 1.37 1 2.7 1.14 2.88.14.18 1.98 3.02 4.8 4.23.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.26-.19-.54-.33z"/>
+              <path d="M15.95 5.33c-5.76 0-10.44 4.68-10.44 10.44 0 1.84.49 3.64 1.42 5.23L5 27l6.18-1.62c1.52.83 3.23 1.27 4.99 1.27 5.76 0 10.44-4.68 10.44-10.44 0-5.76-4.68-10.44-10.66-10.88zm0 19.12c-1.58 0-3.13-.44-4.47-1.27l-.32-.2-3.66.96.98-3.56-.22-.36c-.87-1.4-1.32-3.01-1.32-4.69 0-4.8 3.9-8.7 8.7-8.7 4.8 0 8.7 3.9 8.7 8.7 0 4.8-3.9 8.7-8.39 8.7z"/>
+            </svg>
+          </span>
+          Mandar pedido
+        </a>
+        <div class="cart-panel" id="cartPanel" aria-hidden="true">
+          <div class="cart-panel-header">
+            <strong>Tu pedido</strong>
+            <div class="cart-panel-actions">
+              <button class="link" id="clearCart" type="button">Vaciar</button>
+              <button class="link close-panel" id="closeCart" type="button">Cerrar</button>
+            </div>
+          </div>
+          <div class="cart-list" id="cartList">
+            <p class="empty">Todavía no agregaste productos.</p>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="eyebrow">Todo para tu casa, en un solo lugar</p>
+        <h1>Despensa Mi Felisa</h1>
+        <p class="subtitle">
+          Golosinas, lácteos, limpieza, forrajería y mucho más. Atención rápida,
+          precios amigos y promos que cambian cada semana.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#catalogo">Comprar ahora</a>
+          <a class="btn ghost" href="#contacto">Cómo llegar</a>
+        </div>
+        <div class="hero-info">
+          <div>
+            <span class="label">Horarios</span>
+            <p>Lun a Dom: 08:30 a 23:00</p>
+          </div>
+          <div>
+            <span class="label">Dirección</span>
+            <p>Los Palenques 288, Tafí del Valle, Tucumán</p>
+          </div>
+          <div>
+            <span class="status-pill" id="storeStatus">Estado: --</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="ticket">
+          <p>Promo estrella</p>
+          <h2>2x1 en limpieza</h2>
+          <span>Solo hasta el viernes</span>
+        </div>
+        <div class="stats">
+          <div>
+            <h3>+60</h3>
+            <p>Productos esenciales</p>
+          </div>
+          <div>
+            <h3>10 min</h3>
+            <p>Entrega en la zona</p>
+          </div>
+          <div>
+            <h3>Fiado</h3>
+            <p>Con confianza vecinal</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="section" id="catalogo">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Catálogo rápido</p>
+          <h2>Comprá en un clic</h2>
+        </div>
+        <div class="search">
+          <input id="search" type="search" placeholder="Buscar productos" />
+          <span class="search-hint">Ej: leche, detergente, galletitas</span>
+        </div>
+      </div>
+
+      <div class="filters">
+        <button class="chip active" data-filter="all">Todo</button>
+        <button class="chip" data-filter="lacteos">Lácteos</button>
+        <button class="chip" data-filter="golosinas">Golosinas</button>
+        <button class="chip" data-filter="limpieza">Limpieza</button>
+        <button class="chip" data-filter="bebidas">Bebidas</button>
+        <button class="chip" data-filter="forrajeria">Forrajería</button>
+        <button class="chip" data-filter="petshop">Pet Shop</button>
+        <button class="chip" data-filter="cigarrillos">Cigarrillos</button>
+        <button class="chip" data-filter="almacen">Almacén</button>
+        <button class="chip" data-filter="medicamentos">Medicamentos</button>
+      </div>
+
+      <div class="catalog-grid" id="productGrid">
+        <article class="product" data-category="bebidas" data-name="Agua mineral 2L">
+          <h3>Agua mineral 2L</h3>
+          <p class="desc">Sin gas</p>
+          <div class="price-row">
+            <span class="price" data-price-label>$1500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Ades 200ml" data-brand="Ades" data-price="0">
+          <h3>Ades 200ml</h3>
+          <p class="desc">Bebida vegetal</p>
+          <p class="brand">Marca: Ades</p>
+          <div class="price-row">
+            <span class="price">$1000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Baggio 200ml" data-brand="Baggio" data-price="0">
+          <h3>Baggio 200ml</h3>
+          <p class="desc">Jugo</p>
+          <p class="brand">Marca: Baggio</p>
+          <div class="price-row">
+            <span class="price">$1000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Cepita 300ml" data-brand="Cepita" data-price="0">
+          <h3>Cepita 300ml</h3>
+          <p class="desc">Jugo</p>
+          <p class="brand">Marca: Cepita</p>
+          <div class="price-row">
+            <span class="price">$1500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Baggio Fresh 500ml" data-brand="Baggio" data-price="0">
+          <h3>Baggio Fresh 500ml</h3>
+          <p class="desc">Jugo</p>
+          <p class="brand">Marca: Baggio</p>
+          <div class="price-row">
+            <span class="price">$1500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Coca Cola 600ml" data-brand="Coca Cola" data-price="0">
+          <h3>Coca Cola 600ml</h3>
+          <p class="desc">Gaseosa</p>
+          <p class="brand">Marca: Coca Cola</p>
+          <div class="price-row">
+            <span class="price">$2000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Gatorade 500ml" data-brand="Gatorade" data-price="0">
+          <h3>Gatorade 500ml</h3>
+          <p class="desc">Bebida isotónica</p>
+          <p class="brand">Marca: Gatorade</p>
+          <div class="price-row">
+            <span class="price">$2500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Rockstar 500ml" data-brand="Rockstar" data-price="0">
+          <h3>Rockstar 500ml</h3>
+          <p class="desc">Energizante</p>
+          <p class="brand">Marca: Rockstar</p>
+          <div class="price-row">
+            <span class="price">$2000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Coca Cola 2.5L" data-brand="Coca Cola" data-price="0">
+          <h3>Coca Cola 2.5L</h3>
+          <p class="desc">Gaseosa retornable</p>
+          <p class="brand">Marca: Coca Cola</p>
+          <div class="price-row">
+            <span class="price">$5000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Coca Cola 3L" data-brand="Coca Cola" data-price="0">
+          <h3>Coca Cola 3L</h3>
+          <p class="desc">Gaseosa</p>
+          <p class="brand">Marca: Coca Cola</p>
+          <div class="price-row">
+            <span class="price">$6000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Pepsi 3L" data-brand="Pepsi" data-price="0">
+          <h3>Pepsi 3L</h3>
+          <p class="desc">Gaseosa</p>
+          <p class="brand">Marca: Pepsi</p>
+          <div class="price-row">
+            <span class="price">$4000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Mirinda 3L" data-brand="Mirinda" data-price="0">
+          <h3>Mirinda 3L</h3>
+          <p class="desc">Gaseosa</p>
+          <p class="brand">Marca: Mirinda</p>
+          <div class="price-row">
+            <span class="price">$4000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Secco 3L" data-brand="Secco" data-price="0">
+          <h3>Secco 3L</h3>
+          <p class="desc">Gaseosa</p>
+          <p class="brand">Marca: Secco</p>
+          <div class="price-row">
+            <span class="price">$2500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Pritty 3L" data-brand="Pritty" data-price="0">
+          <h3>Pritty 3L</h3>
+          <p class="desc">Gaseosa</p>
+          <p class="brand">Marca: Pritty</p>
+          <div class="price-row">
+            <span class="price">$3000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Cepita Fresh 3L" data-brand="Cepita Fresh" data-price="0">
+          <h3>Cepita Fresh 3L</h3>
+          <p class="desc">Jugo</p>
+          <p class="brand">Marca: Cepita Fresh</p>
+          <div class="price-row">
+            <span class="price">$2500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Monster 500ml">
+          <h3>Monster 500ml</h3>
+          <p class="desc">Energizante</p>
+          <div class="price-row">
+            <span class="price" data-price-label>$3500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Agua 500ml">
+          <h3>Agua 500ml</h3>
+          <p class="desc">Sin gas</p>
+          <div class="price-row">
+            <span class="price" data-price-label>$1100</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Soda 600ml">
+          <h3>Soda 600ml</h3>
+          <p class="desc">Clásica</p>
+          <div class="price-row">
+            <span class="price" data-price-label>$1100</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-name="Chocolatada 200ml">
+          <h3>Chocolatada Fantoche 200ml</h3>
+          <p class="desc">Lista para tomar</p>
+          <div class="price-row">
+            <span class="price" data-price-label>$1000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="2500" data-name="Lata Quilmes">
+          <h3>Lata Quilmes</h3>
+          <div class="price-row">
+            <span class="price">$2500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="2000" data-name="Salta y Norte">
+          <h3>Salta y Norte</h3>
+          <div class="price-row">
+            <span class="price">$2000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="3500" data-name="Latón Quilmes">
+          <h3>Latón Quilmes</h3>
+          <div class="price-row">
+            <span class="price">$3500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="2500" data-name="Vino Toro">
+          <h3>Vino Toro</h3>
+          <div class="price-row">
+            <span class="price">$2500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="2000" data-name="Vino Animana">
+          <h3>Vino Animana</h3>
+          <div class="price-row">
+            <span class="price">$2000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="2500" data-name="Vieja Mendoza">
+          <h3>Vieja Mendoza</h3>
+          <div class="price-row">
+            <span class="price">$2500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="18000" data-name="Spirito Blue">
+          <h3>Spirito Blue</h3>
+          <div class="price-row">
+            <span class="price">$18000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="7500" data-name="Gancia">
+          <h3>Gancia</h3>
+          <div class="price-row">
+            <span class="price">$7500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="7500" data-name="Vodka New Style">
+          <h3>Vodka New Style</h3>
+          <div class="price-row">
+            <span class="price">$7500</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="3000" data-name="Vino Canciller Blanco">
+          <h3>Vino Canciller Blanco</h3>
+          <div class="price-row">
+            <span class="price">$3000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="4000" data-name="Vino Dilema Blanco">
+          <h3>Vino Dilema Blanco</h3>
+          <div class="price-row">
+            <span class="price">$4000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="17000" data-name="Fernet">
+          <h3>Fernet</h3>
+          <div class="price-row">
+            <span class="price">$17000</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+        <article class="product" data-category="bebidas" data-price="3300" data-name="Doctor Lemmon">
+          <h3>Doctor Lemmon</h3>
+          <div class="price-row">
+            <span class="price">$3300</span>
+            <button class="btn small add">Agregar</button>
+          </div>
+        </article>
+
+  <article class="product" 
+           data-category="petshop" 
+           data-price="2000" 
+           data-name="Sobrecitos para perros">
+
+    <h3>Sobrecitos para perros</h3>
+
+    <div class="price-row">
+      <span class="price">$2000</span>
+      <button class="btn small add">Agregar</button>
+    </div>
+  </article>
+<article class="product" data-category="petshop" data-price="3800" data-name="Cepillitos para pelos">
+  <h3>Cepillitos para pelos</h3>
+  <div class="price-row">
+    <span class="price">$3800</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="petshop" data-price="200" data-name="Palitos para mascar">
+  <h3>Palitos para mascar</h3>
+  <div class="price-row">
+    <span class="price">$200</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="petshop" data-price="3800" data-name="Cepillo de goma para baño">
+  <h3>Cepillo de goma con forma de perro para baño</h3>
+  <div class="price-row">
+    <span class="price">$3800</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="petshop" data-price="1500" data-name="Plato chiquito huella">
+  <h3>Plato chiquitito huella</h3>
+  <div class="price-row">
+    <span class="price">$1500</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="petshop" data-price="3000" data-name="Plato mediano huella">
+  <h3>Plato mediano huella</h3>
+  <div class="price-row">
+    <span class="price">$3000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="petshop" data-price="2500" data-name="Plato grande comun">
+  <h3>Plato grande común</h3>
+  <div class="price-row">
+    <span class="price">$2500</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="petshop" data-price="13000" data-name="Shampoo para perros">
+  <h3>Shampoo</h3>
+  <div class="price-row">
+    <span class="price">$13000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="petshop" data-price="17000" data-name="Collar antipulga">
+  <h3>Collar antipulga</h3>
+  <div class="price-row">
+    <span class="price">$17000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="petshop" data-price="10500" data-name="Mini collar antipulga">
+  <h3>Mini collar antipulga</h3>
+  <div class="price-row">
+    <span class="price">$10500</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+<article class="product" data-category="cigarrillos" data-price="2200" data-name="Lucky Strike Origen Red y Convertible">
+  <h3>Lucky Strike Origen Red y Convertible</h3>
+  <div class="price-row">
+    <span class="price">$2200</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="4000" data-name="Philip Morris Box 10 Común y Convertible">
+  <h3>Philip Morris Box 10 Común y Convertible</h3>
+  <div class="price-row">
+    <span class="price">$4000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="4400" data-name="Marlboro Box 10 Común y Fusion Uva">
+  <h3>Marlboro Box 10 Común y Fusion Uva</h3>
+  <div class="price-row">
+    <span class="price">$4400</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="7000" data-name="Marlboro KS 20">
+  <h3>Marlboro KS 20</h3>
+  <div class="price-row">
+    <span class="price">$7000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="7000" data-name="Marlboro Box Uva">
+  <h3>Marlboro Box Uva</h3>
+  <div class="price-row">
+    <span class="price">$7000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="6600" data-name="Philip Morris Box 20 Convertible">
+  <h3>Philip Morris Box 20 Convertible</h3>
+  <div class="price-row">
+    <span class="price">$6600</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="6000" data-name="Philip Morris KS 20 Común">
+  <h3>Philip Morris KS 20 Común</h3>
+  <div class="price-row">
+    <span class="price">$6000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="5000" data-name="Chesterfield KS 20 Común y Convertible">
+  <h3>Chesterfield KS 20 Común y Convertible</h3>
+  <div class="price-row">
+    <span class="price">$5000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="4400" data-name="Marlboro Crafted 20 Box Coral">
+  <h3>Marlboro Crafted 20 Box Coral</h3>
+  <div class="price-row">
+    <span class="price">$4400</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="3900" data-name="Marlboro Crafted 20 KS Común y Convertible">
+  <h3>Marlboro Crafted 20 KS Común y Convertible</h3>
+  <div class="price-row">
+    <span class="price">$3900</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="3700" data-name="Lucky Strike KS Red">
+  <h3>Lucky Strike KS Red</h3>
+  <div class="price-row">
+    <span class="price">$3700</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="2000" data-name="Master Pier Kiel Hills">
+  <h3>Master, Pier, Kiel y Hills</h3>
+  <div class="price-row">
+    <span class="price">$2000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="1500" data-name="Route 66 Convertible">
+  <h3>Route 66 Convertible</h3>
+  <div class="price-row">
+    <span class="price">$1500</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="cigarrillos" data-price="1100" data-name="Euro">
+  <h3>Euro</h3>
+  <div class="price-row">
+    <span class="price">$1100</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+<!-- FIDEOS -->
+
+<article class="product" data-category="almacen" data-price="2000" data-name="Fideos Cotella Moños">
+<h3>Fideos Cotella Moños</h3>
+<div class="price-row"><span class="price">$2000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1600" data-name="Fideos Cotella Tallarín">
+<h3>Fideos Cotella Tallarín Nido</h3>
+<div class="price-row"><span class="price">$1600</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1200" data-name="Fideos Cotella Entrefino">
+<h3>Fideos Cotella Entrefino / Pampero</h3>
+<div class="price-row"><span class="price">$1200</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1200" data-name="Fideos Terrabussi">
+<h3>Fideos Terrabussi (varios)</h3>
+<div class="price-row"><span class="price">$1200</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2400" data-name="Fideos Luchetti Cabello">
+<h3>Luchetti Cabello de Ángel</h3>
+<div class="price-row"><span class="price">$2400</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2000" data-name="Fideos Irene Huevo">
+<h3>Fideos Irene al Huevo</h3>
+<div class="price-row"><span class="price">$2000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- ARROZ Y LEGUMBRES -->
+
+<article class="product" data-category="almacen" data-price="1200" data-name="Arroz Mucho Gusto 500g">
+<h3>Arroz Mucho Gusto 1/2 kg</h3>
+<div class="price-row"><span class="price">$1200</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2000" data-name="Arroz Mucho Gusto 1kg">
+<h3>Arroz Mucho Gusto 1 kg</h3>
+<div class="price-row"><span class="price">$2000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1300" data-name="Arroz La Española">
+<h3>Arroz La Española Parboil</h3>
+<div class="price-row"><span class="price">$1300</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2600" data-name="Porotos La Española">
+<h3>Porotos La Española</h3>
+<div class="price-row"><span class="price">$2600</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1800" data-name="Maíz Blanco">
+<h3>Maíz Blanco La Española</h3>
+<div class="price-row"><span class="price">$1800</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1600" data-name="Burgol">
+<h3>Burgol La Española</h3>
+<div class="price-row"><span class="price">$1600</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1500" data-name="Lentejas">
+<h3>Lentejas La Española</h3>
+<div class="price-row"><span class="price">$1500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1300" data-name="Avena Instantánea">
+<h3>Avena Instantánea</h3>
+<div class="price-row"><span class="price">$1300</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1500" data-name="Maíz Pisingallo">
+<h3>Maíz Pisingallo</h3>
+<div class="price-row"><span class="price">$1500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- HARINAS Y POLENTA -->
+
+<article class="product" data-category="almacen" data-price="500" data-name="Polenta Baronesa 500g">
+<h3>Polenta Baronesa 1/2 kg</h3>
+<div class="price-row"><span class="price">$500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1500" data-name="Polenta Prestopronta 500g">
+<h3>Polenta Prestopronta 1/2 kg</h3>
+<div class="price-row"><span class="price">$1500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2000" data-name="Polenta Prestopronta 1kg">
+<h3>Polenta Prestopronta 1 kg</h3>
+<div class="price-row"><span class="price">$2000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1100" data-name="Harina 000">
+<h3>Harina 000</h3>
+<div class="price-row"><span class="price">$1100</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1400" data-name="Harina 0000">
+<h3>Harina 0000</h3>
+<div class="price-row"><span class="price">$1400</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1800" data-name="Harina Leudante">
+<h3>Harina Leudante</h3>
+<div class="price-row"><span class="price">$1800</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- VARIOS -->
+
+<article class="product" data-category="almacen" data-price="1700" data-name="Grasa 500g">
+<h3>Grasa 1/2 kg</h3>
+<div class="price-row"><span class="price">$1700</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2700" data-name="Grasa 1kg">
+<h3>Grasa 1 kg</h3>
+<div class="price-row"><span class="price">$2700</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1800" data-name="Pan Rallado Preferido">
+<h3>Pan Rallado Preferido 1/2</h3>
+<div class="price-row"><span class="price">$1800</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2000" data-name="Pan Rallado Suelto">
+<h3>Pan Rallado Suelto (bolsa)</h3>
+<div class="price-row"><span class="price">$2000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1500" data-name="Ramen Arcor">
+<h3>Ramen Arcor</h3>
+<div class="price-row"><span class="price">$1500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- SALES Y AZÚCAR -->
+
+<article class="product" data-category="almacen" data-price="1500" data-name="Sal Celusal">
+<h3>Sal Celusal</h3>
+<div class="price-row"><span class="price">$1500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1000" data-name="Sal Manto Blanco">
+<h3>Sal Manto Blanco</h3>
+<div class="price-row"><span class="price">$1000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1100" data-name="Azúcar">
+<h3>Azúcar</h3>
+<div class="price-row"><span class="price">$1100</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- EDULCORANTES -->
+
+<article class="product" data-category="almacen" data-price="2000" data-name="Stevia Polvo">
+<h3>Stevia en Polvo</h3>
+<div class="price-row"><span class="price">$2000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2000" data-name="Edulcorante Líquido">
+<h3>Edulcorante Líquido</h3>
+<div class="price-row"><span class="price">$2000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="3000" data-name="Stevia Líquida">
+<h3>Stevia Líquida</h3>
+<div class="price-row"><span class="price">$3000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- JUGOS -->
+
+<article class="product" data-category="almacen" data-price="600" data-name="Jugo en Polvo">
+<h3>Jugo en Polvo Clight / Tang</h3>
+<div class="price-row"><span class="price">$600</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="600" data-name="Jugo Dody 2L">
+<h3>Jugo Dody 2L</h3>
+<div class="price-row"><span class="price">$600</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- QUESO -->
+
+<article class="product" data-category="almacen" data-price="1000" data-name="Queso Rallado La Quesera">
+<h3>Queso Rallado La Quesera</h3>
+<div class="price-row"><span class="price">$1000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1600" data-name="Queso Rallado La Serenísima">
+<h3>Queso Rallado La Serenísima</h3>
+<div class="price-row"><span class="price">$1600</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1400" data-name="Queso Rallado La Tonadita">
+<h3>Queso Rallado La Tonadita</h3>
+<div class="price-row"><span class="price">$1400</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- YERBAS -->
+
+<article class="product" data-category="almacen" data-price="1900" data-name="Yerba La Hoja">
+<h3>Yerba Mate La Hoja</h3>
+<div class="price-row"><span class="price">$1900</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1800" data-name="Yerba Hierbital">
+<h3>Hierbital</h3>
+<div class="price-row"><span class="price">$1800</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2100" data-name="Yerba Verdeflor">
+<h3>Verdeflor</h3>
+<div class="price-row"><span class="price">$2100</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2300" data-name="Yerba Cachamate">
+<h3>Cachamate</h3>
+<div class="price-row"><span class="price">$2300</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2000" data-name="Yerba CBSé">
+<h3>CBSé</h3>
+<div class="price-row"><span class="price">$2000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2300" data-name="Yerba Rosamonte">
+<h3>Rosamonte</h3>
+<div class="price-row"><span class="price">$2300</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1700" data-name="Taragüi 1/4">
+<h3>Taragüi 1/4</h3>
+<div class="price-row"><span class="price">$1700</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1700" data-name="Mañanita 1/4">
+<h3>Mañanita 1/4</h3>
+<div class="price-row"><span class="price">$1700</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1700" data-name="Vitina">
+<h3>Vitina</h3>
+<div class="price-row"><span class="price">$1700</span><button class="btn small add">Agregar</button></div>
+</article>
+<article class="product" data-category="almacen" data-price="4000" data-name="Caballa Marbella">
+  <h3>Caballa en aceite Marbella</h3>
+  <div class="price-row">
+    <span class="price">$4000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1700" data-name="Choclo lata">
+  <h3>Choclo en lata</h3>
+  <div class="price-row">
+    <span class="price">$1700</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="almacen" data-price="1100" data-name="Arvejas lata">
+  <h3>Arvejas en lata</h3>
+  <div class="price-row">
+    <span class="price">$1100</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="almacen" data-price="3000" data-name="Pan de carne">
+  <h3>Pan de carne</h3>
+  <div class="price-row">
+    <span class="price">$3000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2000" data-name="Atún">
+  <h3>Atún aceite / natural</h3>
+  <div class="price-row">
+    <span class="price">$2000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="almacen" data-price="3000" data-name="Sardinas">
+  <h3>Sardinas</h3>
+  <div class="price-row">
+    <span class="price">$3000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="almacen" data-price="700" data-name="Picadillo">
+  <h3>Picadillo</h3>
+  <div class="price-row">
+    <span class="price">$700</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="almacen" data-price="2000" data-name="Duraznos lata">
+  <h3>Duraznos en lata</h3>
+  <div class="price-row">
+    <span class="price">$2000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+
+<article class="product" data-category="almacen" data-price="3000" data-name="Coctel frutas">
+  <h3>Cóctel de frutas</h3>
+  <div class="price-row">
+    <span class="price">$3000</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+<article class="product" data-category="almacen" data-price="4400" data-name="Fideos Luchettinis">
+  <h3>Fideos Luchettinis</h3>
+  <div class="price-row">
+    <span class="price">$4400</span>
+    <button class="btn small add">Agregar</button>
+  </div>
+</article>
+<!-- GALLETITAS DULCES -->
+
+<article class="product" data-category="golosinas" data-price="2000" data-name="Oreo Pepitos">
+  <h3>Oreo y Pepitos</h3>
+  <div class="price-row"><span class="price">$2000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1400" data-name="Merengadas">
+  <h3>Merengadas</h3>
+  <div class="price-row"><span class="price">$1400</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="700" data-name="Polvoritas">
+  <h3>Polvoritas</h3>
+  <div class="price-row"><span class="price">$700</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1200" data-name="Formis">
+  <h3>Formis</h3>
+  <div class="price-row"><span class="price">$1200</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1200" data-name="Mana Comun">
+  <h3>Maná común</h3>
+  <div class="price-row"><span class="price">$1200</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1500" data-name="Mana Rellena">
+  <h3>Maná rellena</h3>
+  <div class="price-row"><span class="price">$1500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1800" data-name="Chocolinas">
+  <h3>Chocolinas</h3>
+  <div class="price-row"><span class="price">$1800</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1000" data-name="Vainillas">
+  <h3>Vainillas</h3>
+  <div class="price-row"><span class="price">$1000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1000" data-name="Pepas">
+  <h3>Pepas</h3>
+  <div class="price-row"><span class="price">$1000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1400" data-name="Opera">
+  <h3>Opera</h3>
+  <div class="price-row"><span class="price">$1400</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="3700" data-name="Surtido Bagley">
+  <h3>Surtido Bagley</h3>
+  <div class="price-row"><span class="price">$3700</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="3000" data-name="Diversion">
+  <h3>Diversión</h3>
+  <div class="price-row"><span class="price">$3000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="2500" data-name="Lia Surtida">
+  <h3>Lía surtida</h3>
+  <div class="price-row"><span class="price">$2500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- GALLETITAS SALADAS -->
+
+<article class="product" data-category="golosinas" data-price="2000" data-name="Traviata">
+  <h3>Traviata</h3>
+  <div class="price-row"><span class="price">$2000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1600" data-name="Tia Maruca">
+  <h3>Tía Maruca</h3>
+  <div class="price-row"><span class="price">$1600</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1500" data-name="Serranitas">
+  <h3>Serranitas</h3>
+  <div class="price-row"><span class="price">$1500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="600" data-name="Criollitas">
+  <h3>Criollitas</h3>
+  <div class="price-row"><span class="price">$600</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="2300" data-name="Budin">
+  <h3>Budín</h3>
+  <div class="price-row"><span class="price">$2300</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- CHOCOLATES -->
+
+<article class="product" data-category="golosinas" data-price="1500" data-name="Chocolate Arcor">
+  <h3>Chocolate Arcor</h3>
+  <div class="price-row"><span class="price">$1500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1000" data-name="Hamlet">
+  <h3>Hamlet</h3>
+  <div class="price-row"><span class="price">$1000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1800" data-name="Block Mini">
+  <h3>Block Mini</h3>
+  <div class="price-row"><span class="price">$1800</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="800" data-name="Rocklets">
+  <h3>Rocklets</h3>
+  <div class="price-row"><span class="price">$800</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="4300" data-name="Chocolate Taza">
+  <h3>Chocolate para taza</h3>
+  <div class="price-row"><span class="price">$4300</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- CHICLES Y CARAMELOS -->
+
+<article class="product" data-category="golosinas" data-price="1000" data-name="Beldent">
+  <h3>Beldent</h3>
+  <div class="price-row"><span class="price">$1000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="500" data-name="Topline">
+  <h3>Topline</h3>
+  <div class="price-row"><span class="price">$500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1000" data-name="Topline Seven">
+  <h3>Topline 7</h3>
+  <div class="price-row"><span class="price">$1000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1000" data-name="Menthoplus">
+  <h3>Menthoplus</h3>
+  <div class="price-row"><span class="price">$1000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="500" data-name="Bobaloo Pack">
+  <h3>Bobaloo 4x</h3>
+  <div class="price-row"><span class="price">$500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+<!-- ALFAJORES -->
+
+<article class="product" data-category="golosinas" data-price="700" data-name="Alfajor Tatin Doble">
+  <h3>Alfajor Tatín doble</h3>
+  <div class="price-row"><span class="price">$700</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1300" data-name="Alfajor Cofler Mousse">
+  <h3>Alfajor Cofler mousse</h3>
+  <div class="price-row"><span class="price">$1300</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1000" data-name="Alfajor Fantoche">
+  <h3>Alfajor Fantoche</h3>
+  <div class="price-row"><span class="price">$1000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="golosinas" data-price="1700" data-name="Alfajor Bonobon Triple">
+  <h3>Alfajor Bonobon triple</h3>
+  <div class="price-row"><span class="price">$1700</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<!-- Medicamentos y cuidado personal -->
+<article class="product" data-category="medicamentos" data-price="200" data-name="Loratadina">
+  <h3>Loratadina</h3>
+  <div class="price-row"><span class="price">$200</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class= "product" data-category="medicamentos" data-price="500" data-name="Tafirol común">
+  <h3>Tafirol común</h3>
+  <div class="price-row"><span class="price">$500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="medicamentos" data-price="500" data-name="ibuprofeno">
+  <h3>Ibuprofeno</h3>
+  <div class="price-row"><span class="price">$500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="medicamentos" data-price ="500" data-name="amoxicilina">
+  <h3>Amoxicilina</h3>
+  <div class="price-row"><span class="price">$500</span><button class="btn small add">Agregar</button></div>
+</article>
+
+<article class="product" data-category="medicamentos" data-price="1000" data-name="qura plus">
+  <h3>Qura Plus</h3>
+  <div class="price-row"><span class="price">$1000</span><button class="btn small add">Agregar</button></div>
+</article>
+
+
+
+   </section>
+
+    <section class="section promos" id="promos">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Promos semanales</p>
+          <h2>Elegí tu descuento</h2>
+        </div>
+      </div>
+      <div class="promo-grid">
+        <div class="promo-card">
+          <h3>2x1 en limpieza</h3>
+          <p>Detergente + lavandina con 50% OFF</p>
+        </div>
+        <div class="promo-card">
+          <h3>Lácteos al 30%</h3>
+          <p>Comprando 2 unidades o más</p>
+        </div>
+        <div class="promo-card">
+          <h3>Llevá 5 pagá 4</h3>
+          <p>En golosinas seleccionadas</p>
+        </div>
+      </div>
+    </section>
+    
+    
+
+    <section class="section services" id="servicios">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Servicios</p>
+          <h2>Somos tu ayuda diaria</h2>
+        </div>
+      </div>
+      <div class="service-grid">
+        <div class="service">
+          <h3>Delivery express</h3>
+          <p>En 10 a 20 minutos dentro del barrio.</p>
+        </div>
+        <div class="service">
+          <h3>Recargas y pagos</h3>
+          <p>Celular, SUBE y servicios con comprobante.</p>
+        </div>
+        <div class="service">
+          <h3>Pedidos por WhatsApp</h3>
+          <p>Te armamos el pedido y coordinamos la entrega.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contacto">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2>Estamos cerca tuyo</h2>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Visitanos</h3>
+          <p>Los Palenques 288, Tafí del Valle, Tucumán</p>
+          <p>Lun a Dom 08:30 - 23:00</p>
+          <a class="btn primary whatsapp-btn" href="https://wa.me/543815787398" target="_blank" rel="noopener">
+            <span class="wa-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M19.11 17.62c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.64.14-.18.28-.73.9-.9 1.08-.16.18-.33.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.33.42-.49.14-.16.18-.28.28-.46.1-.18.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.55-.46-.47-.64-.48l-.54-.01c-.18 0-.49.07-.74.35-.26.28-.97.95-.97 2.32 0 1.37 1 2.7 1.14 2.88.14.18 1.98 3.02 4.8 4.23.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.26-.19-.54-.33z"/>
+                <path d="M15.95 5.33c-5.76 0-10.44 4.68-10.44 10.44 0 1.84.49 3.64 1.42 5.23L5 27l6.18-1.62c1.52.83 3.23 1.27 4.99 1.27 5.76 0 10.44-4.68 10.44-10.44 0-5.76-4.68-10.44-10.66-10.88zm0 19.12c-1.58 0-3.13-.44-4.47-1.27l-.32-.2-3.66.96.98-3.56-.22-.36c-.87-1.4-1.32-3.01-1.32-4.69 0-4.8 3.9-8.7 8.7-8.7 4.8 0 8.7 3.9 8.7 8.7 0 4.8-3.9 8.7-8.39 8.7z"/>
+              </svg>
+            </span>
+            Pedir por WhatsApp
+          </a>
+        </div>
+        <div class="map">
+          <iframe
+            title="Mapa Despensa Mi Felisa"
+            src="https://www.google.com/maps?q=Los+Palenques+288,+Taf%C3%AD+del+Valle,+Tucum%C3%A1n,+Argentina&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp whatsapp-btn" href="https://wa.me/543815787398" target="_blank" rel="noopener">
+    <span class="wa-icon" aria-hidden="true">
+      <svg viewBox="0 0 32 32">
+        <path d="M19.11 17.62c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.64.14-.18.28-.73.9-.9 1.08-.16.18-.33.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.33.42-.49.14-.16.18-.28.28-.46.1-.18.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.55-.46-.47-.64-.48l-.54-.01c-.18 0-.49.07-.74.35-.26.28-.97.95-.97 2.32 0 1.37 1 2.7 1.14 2.88.14.18 1.98 3.02 4.8 4.23.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.26-.19-.54-.33z"/>
+        <path d="M15.95 5.33c-5.76 0-10.44 4.68-10.44 10.44 0 1.84.49 3.64 1.42 5.23L5 27l6.18-1.62c1.52.83 3.23 1.27 4.99 1.27 5.76 0 10.44-4.68 10.44-10.44 0-5.76-4.68-10.44-10.66-10.88zm0 19.12c-1.58 0-3.13-.44-4.47-1.27l-.32-.2-3.66.96.98-3.56-.22-.36c-.87-1.4-1.32-3.01-1.32-4.69 0-4.8 3.9-8.7 8.7-8.7 4.8 0 8.7 3.9 8.7 8.7 0 4.8-3.9 8.7-8.39 8.7z"/>
+      </svg>
+    </span>
+    ¡Pedime por acá!
+  </a>
+
+  <footer class="footer">
+    <p>Despensa Mi Felisa · Atención personalizada · Los Palenques 288</p>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</body>
+</html>
